@@ -74,10 +74,14 @@ namespace ServiceStack.Text
 
     public class JsonObject : Dictionary<string, string>
     {
-        /// <summary>
-        /// Get JSON string value
-        /// </summary>
-        public new string this[string key]
+		public JsonObject() : base(StringComparer.OrdinalIgnoreCase)
+		{
+		}
+
+		/// <summary>
+		/// Get JSON string value
+		/// </summary>
+		public new string this[string key]
         {
             get { return this.Get(key); }
             set { base[key] = value; }
